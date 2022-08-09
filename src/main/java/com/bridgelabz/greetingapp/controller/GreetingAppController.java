@@ -2,6 +2,7 @@ package com.bridgelabz.greetingapp.controller;
 
 import com.bridgelabz.greetingapp.dto.GreetingAppDTO;
 import com.bridgelabz.greetingapp.dto.GreetingUserDTO;
+import com.bridgelabz.greetingapp.model.GreetingAppModel;
 import com.bridgelabz.greetingapp.service.IGreetingAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -21,12 +22,12 @@ public class GreetingAppController {
                 String.format(template, name));
     }
     @GetMapping("")
-    public GreetingAppDTO sayHello(){
+    public GreetingAppModel sayHello(){
     return greetingAppService.getMessage();
     }
 
     @PostMapping("/post")
-    private GreetingAppDTO sayHello(@RequestBody GreetingUserDTO greetingUserDTO) {
+    private GreetingAppModel sayHello(@RequestBody GreetingUserDTO greetingUserDTO) {
         return greetingAppService.greetingMessage(greetingUserDTO);
     }
 
